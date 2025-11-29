@@ -1,0 +1,122 @@
+/*Variables de colores globales*/
+:root {
+    --primary-orange: #ff6600;
+    --secondary-orange: #ffa500;
+    --dark-grey: #212529;
+    --admin-blue: #0d47a1;
+}
+
+/*Navegación global*/
+.navbar .nav-link {
+    color: #495057;
+}
+
+/*Resaltado de la selección en el nav bar*/
+.navbar .nav-link.active {
+    background-color: var(--primary-orange) !important;
+    color: white !important;
+    border-radius: 5px;
+}
+
+/*Fondos específicos*/
+.bg-light-gray, .login-body, .form-body, .confirm-body {
+    background-color: #f0f0f0 !important;
+}
+
+/* Headers de inicio, acerca de, catálogo */
+.hero-section, 
+.catalog-header, 
+.about-header {
+    background-color: var(--primary-orange); 
+    background: linear-gradient(90deg, #ff6600 0%, #ff8533 100%);
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Botón 'Conoce más' en menú principal */
+.conoce-mas-btn {
+    background-color: #d65800;
+    color: white;
+    border: 1px solid #d65800;
+    font-weight: bold;
+}
+.conoce-mas-btn:hover {
+    background-color: #ff781a;
+    color: white;
+}
+
+/*Detalles de mascota */
+.call-to-action-box {
+    background-color: var(--primary-orange) !important;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, #ff8c42 100%);
+    color: white;
+}
+.call-to-action-box .btn-light {
+    color: #333 !important;
+    font-weight: bold;
+}
+
+/* Formulario de adopción*/
+.form-control, .form-select {
+    background-color: #f7f7f7 !important;
+    border: 1px solid #e0e0e0 !important;
+    padding: 10px;
+}
+.form-control:focus, .form-select:focus {
+    background-color: white !important;
+    border-color: var(--primary-orange) !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 0, 0.25);
+}
+
+/*Botones de envío y autenticación*/
+.login-btn, .register-btn, .confirm-btn, .submit-btn {
+    background-color: var(--dark-grey) !important;
+    border-color: var(--dark-grey) !important;
+}
+.login-btn:hover, .register-btn:hover, .confirm-btn:hover, .submit-btn:hover {
+    background-color: #495057 !important;
+    border-color: #495057 !important;
+}
+
+/*Botón específico: Editar perfil*/
+.edit-profile-btn {
+    color: #495057; 
+}
+.edit-profile-btn:hover {
+    color: #007bff;
+}
+
+/*Bloque azul, panel de administrador en el perfil*/
+.admin-panel-card {
+    background-color: var(--admin-blue); 
+    border-radius: 10px;
+}
+
+/* Botones dentro del Panel de Administración */
+.admin-action-btn {
+    background-color: white !important;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+.admin-action-btn:hover {
+    transform: translateY(-3px);
+    background-color: #f0f0f0 !important;
+}
+
+/* Tamaño de fuente de información del perfil */
+.profile-info-card .fs-5 {
+    font-size: 1.1rem !important;
+}
+
+/* Forzar color blanco en texto del footer*/
+footer h5, footer p, footer li, footer a {
+    color: white !important;
+}
+footer a:hover {
+    color: var(--primary-orange) !important;
+}
+/* Elimina la línea interna que divide*/
+footer .border-top {
+    border-top: none !important;
+}

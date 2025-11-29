@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdoptaPet - Gestión de Usuarios</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light-gray">
+    
+    <nav class="navbar navbar-expand-lg bg-light p-3 border-bottom sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand text-danger fw-bold" href="/">
+                <i class="fas fa-heart me-1" style="color: #ff6600;"></i> AdoptaPet
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="adminNavbar">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item me-2"><a class="nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item me-2"><a class="nav-link" href="/catalogo">Mascotas</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="/acerca-de">Acerca de</a></li>
+                    
+                    <li class="nav-item me-2 mb-2 mb-lg-0">
+                        <a href="/crud-mascotas" class="btn btn-primary admin-nav-btn w-100">
+                            <i class="fas fa-database me-1"></i> CRUD Mascotas
+                        </a>
+                    </li>
+                    <li class="nav-item me-2 mb-2 mb-lg-0">
+                        <a href="/crud-solicitudes" class="btn btn-success admin-nav-btn w-100">
+                            <i class="fas fa-file-alt me-1"></i> CRUD Solicitudes
+                        </a>
+                    </li>
+                    <li class="nav-item me-2 mb-2 mb-lg-0">
+                        <a href="/crud-usuarios" class="btn btn-info admin-nav-btn active w-100">
+                            <i class="fas fa-users me-1"></i> CRUD Usuarios
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/perfil-usuario" class="nav-link"><i class="fas fa-user-circle fa-lg"></i> Perfil</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5 flex-grow-1">
+        
+        <a href="/perfil-usuario" class="text-decoration-none text-secondary mb-3 d-inline-block">
+            <i class="fas fa-arrow-left me-1"></i> Volver al panel
+        </a>
+
+        <div class="card p-4 shadow-sm border-0">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+                <div>
+                    <h1 class="fw-bold mb-1">Gestión de Usuarios</h1>
+                    <p class="text-muted mb-0">Administra los roles y cuentas del sistema</p>
+                </div>
+            </div>
+
+            <div class="bg-light p-3 rounded-3 mb-4">
+                <div class="input-group">
+                    <span class="input-group-text border-0 bg-transparent"><i class="fas fa-search text-muted"></i></span>
+                    <input type="text" class="form-control border-0 bg-transparent shadow-none" placeholder="Buscar por nombre, email o teléfono...">
+                </div>
+            </div>
+
+            <h5 class="fw-bold mb-3">Usuarios Registrados (3)</h5>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Rol Actual</th>
+                            <th class="text-center">Acciones</th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-user text-secondary"></i>
+                                    </div>
+                                    <span class="fw-bold">Usuario Demo</span>
+                                </div>
+                            </td>
+                            <td>usuario@ejemplo.com</td>
+                            <td>+52 123 456 7890</td>
+                            <td><span class="badge bg-secondary">Cliente</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-success btn-sm me-1" title="Promover a Administrador">
+                                    <i class="fas fa-user-shield"></i>
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" title="Eliminar Usuario">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr class="table-light border-start border-3 border-warning">
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-crown text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Admin Demo</span>
+                                        <br>
+                                        <small class="text-muted" style="font-size: 0.75rem;">Cuenta Principal</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>admin@adoptapet.com</td>
+                            <td>+52 987 654 3210</td>
+                            <td><span class="badge bg-dark">Administrador</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-secondary btn-sm me-1 border-0" disabled title="Usuario ya es Admin">
+                                    <i class="fas fa-user-check"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm" disabled title="No se puede eliminar a un administrador">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
+                                        <i class="fas fa-user text-secondary"></i>
+                                    </div>
+                                    <span class="fw-bold">María González</span>
+                                </div>
+                            </td>
+                            <td>maria.glez@email.com</td>
+                            <td>+52 111 222 3333</td>
+                            <td><span class="badge bg-secondary">Cliente</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-success btn-sm me-1" title="Promover a Administrador">
+                                    <i class="fas fa-user-shield"></i>
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" title="Eliminar Usuario">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-white"><i class="fas fa-heart me-1" style="color: #ff6600;"></i> AdoptaPet</h5>
+                    <p class="text-muted small">Conectando mascotas con hogares amorosos desde 2020.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-white">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/" class="text-white text-decoration-none">Inicio</a></li>
+                        <li><a href="/catalogo" class="text-white text-decoration-none">Mascotas</a></li>
+                        <li><a href="/acerca-de" class="text-white text-decoration-none">Acerca de</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-white">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Términos y condiciones</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-white">Contacto</h5>
+                    <ul class="list-unstyled text-white small">
+                        <li>info@adoptapet.com</li>
+                        <li>+52 (123) 456-7890</li>
+                        <li>Calle Principal 123</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center py-3">
+            <p class="mb-0 small text-muted">© 2025 AdoptaPet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
