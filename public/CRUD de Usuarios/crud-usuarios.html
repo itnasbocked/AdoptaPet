@@ -75,7 +75,8 @@
                 </div>
             </div>
 
-            <h5 class="fw-bold mb-3">Usuarios Registrados (3)</h5>
+<h5 class="fw-bold mb-3">Usuarios Registrados (<span id="usuariosCount">0</span>)</h5>
+
 
             <div class="table-responsive">
                 <table class="table table-hover align-middle">
@@ -88,79 +89,8 @@
                             <th class="text-center">Acciones</th> 
                         </tr>
                     </thead>
-                    <tbody>
-                        
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-light rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
-                                        <i class="fas fa-user text-secondary"></i>
-                                    </div>
-                                    <span class="fw-bold">Usuario Demo</span>
-                                </div>
-                            </td>
-                            <td>usuario@ejemplo.com</td>
-                            <td>+52 123 456 7890</td>
-                            <td><span class="badge bg-secondary">Cliente</span></td>
-                            <td class="text-center">
-                                <button class="btn btn-outline-success btn-sm me-1" title="Promover a Administrador">
-                                    <i class="fas fa-user-shield"></i>
-                                </button>
-                                <button class="btn btn-outline-danger btn-sm" title="Eliminar Usuario">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr class="table-light border-start border-3 border-warning">
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-warning bg-opacity-10 rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
-                                        <i class="fas fa-crown text-warning"></i>
-                                    </div>
-                                    <div>
-                                        <span class="fw-bold">Admin Demo</span>
-                                        <br>
-                                        <small class="text-muted" style="font-size: 0.75rem;">Cuenta Principal</small>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>admin@adoptapet.com</td>
-                            <td>+52 987 654 3210</td>
-                            <td><span class="badge bg-dark">Administrador</span></td>
-                            <td class="text-center">
-                                <button class="btn btn-outline-secondary btn-sm me-1 border-0" disabled title="Usuario ya es Admin">
-                                    <i class="fas fa-user-check"></i>
-                                </button>
-                                <button class="btn btn-outline-secondary btn-sm" disabled title="No se puede eliminar a un administrador">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="bg-light rounded-circle p-2 me-2 text-center" style="width: 40px; height: 40px;">
-                                        <i class="fas fa-user text-secondary"></i>
-                                    </div>
-                                    <span class="fw-bold">María González</span>
-                                </div>
-                            </td>
-                            <td>maria.glez@email.com</td>
-                            <td>+52 111 222 3333</td>
-                            <td><span class="badge bg-secondary">Cliente</span></td>
-                            <td class="text-center">
-                                <button class="btn btn-outline-success btn-sm me-1" title="Promover a Administrador">
-                                    <i class="fas fa-user-shield"></i>
-                                </button>
-                                <button class="btn btn-outline-danger btn-sm" title="Eliminar Usuario">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                    </tbody>
+                 <tbody id="usuariosTable">
+</tbody>
                 </table>
             </div>
             
@@ -205,6 +135,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/CRUD de Usuarios/script.js"></script>
 </body>
 </html>

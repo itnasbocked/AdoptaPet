@@ -105,3 +105,79 @@ exports.login = (req, res) => {
 //         });
 //     });
 // };
+
+//___________________CRUD_______________________________
+
+exports.obtenerUsuarios = (req, res) => {
+    const sql = `
+        SELECT usuario_id, nombre, email, telefono, rol_id, activo
+        FROM usuario
+    `;
+    bd.query(sql, (err, results) => {
+        if (err) {
+            console.error('Error al obtener usuarios:', err);
+            return res.status(500).json({ message: 'Error interno.' });
+        }
+        res.json(results);
+    });
+};
+
+exports.editarUsuario = (req, res) => {
+    const usuarioId = req.params.id;
+    const { rol_id, activo } = req.body;
+
+    if (rol_id === undefined && activo === undefined) {
+        return res.status(400).json({ message: 'No se proporcionaron campos para actualizar.' });
+    }
+
+    // Armamos el UPDATE dinámicamente según lo que llegue
+    let campos = [];
+    let valores = [];
+
+    if (rol_id !== undefined) {
+        campos.push('rol_id = ?');
+        valores.push(rol_id);
+    }
+
+    if (activo !== undefined) {
+        campos.push('activo = ?');
+        valores.push(activo);
+    }
+
+    const sql = `
+        UPDATE usuario
+        SET ${campos.join(', ')}
+        WHERE usuario_id = ?
+    `;
+    valores.push(usuarioId);
+
+    bd.query(sql, valores, (err, result) => {
+        if (err) {
+            console.error('Error al editar usuario:', err);
+            return res.status(500).json({ message: 'Error interno.' });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Usuario no encontrado.' });
+        }
+
+        res.json({ message: 'Usuario actualizado con éxito.' });
+    });
+};
+
+exports.eliminarUsuario = (req, res) => {
+    const usuarioId = req.params.id;
+
+    const sql = 'DELETE FROM usuario WHERE usuario_id = ?';
+
+    bd.query(sql, [usuarioId], (err, result) => {
+        if (err) {
+            console.error('Error al eliminar usuario:', err);
+            return res.status(500).json({ message: 'Error interno.' });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Usuario no encontrado.' });
+        }
+
+        res.json({ message: 'Usuario eliminado con éxito.' });
+    });
+};

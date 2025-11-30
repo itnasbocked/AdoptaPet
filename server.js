@@ -5,10 +5,10 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const rutaMascota = require('./src/rutas/rutaMascota')
+const rutaMascota = require('./src/rutas/rutaMascota');
 const rutaUsuario = require('./src/rutas/rutaUsuario');
-const middleware = require('./src/middleware/middleware');
 const rutaSolicitud = require('./src/rutas/rutaSolicitudes');
+const middleware = require('./src/middleware/middleware');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -71,5 +71,4 @@ app.get('/crud-solicitudes', middleware.isAdmin, (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     require('./src/bd')
-
 });
