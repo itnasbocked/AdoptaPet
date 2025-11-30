@@ -2,7 +2,7 @@ const bd = require('../bd');
 const bcrypt = require('bcryptjs'); 
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = 'TU_CLAVE_SECRETA_SUPER_LARGA';
+const JWT_SECRET = 'BTFj/zE+bFms6oKwJ07yEpDbKCBYv1P0QHXh17qucb0=';
 
 //Registro
 exports.register = async (req, res) => {
@@ -70,3 +70,38 @@ exports.login = (req, res) => {
         });
     });
 };
+
+// Actualizar perfil de usuario
+// exports.updateProfile = (req, res) => {
+//     const userId = req.user ? req.user.id : 1; 
+
+//     const { nombre, apellido, telefono, direccion } = req.body;
+
+//     const sqlUpdateUsuario = `
+//         UPDATE usuario 
+//         SET nombre = ?, telefono = ? 
+//         WHERE usuario_id = ?`;
+//     const paramsUsuario = [nombre, telefono, userId];
+
+//     const sqlUpdatePerfil = `
+//         INSERT INTO usuario_perfil (usuario_id, apellido, direccion) 
+//         VALUES (?, ?, ?)
+//         ON DUPLICATE KEY UPDATE apellido = VALUES(apellido), direccion = VALUES(direccion)`;
+//     const paramsPerfil = [userId, apellido, direccion];
+
+//     bd.query(sqlUpdateUsuario, paramsUsuario, (err, resultUsuario) => {
+//         if (err) {
+//             console.error('Error al actualizar tabla usuario:', err);
+//             return res.status(500).json({ message: 'Error interno al actualizar datos principales.' });
+//         }
+        
+//         bd.query(sqlUpdatePerfil, paramsPerfil, (err, resultPerfil) => {
+//             if (err) {
+//                 console.error('Error al actualizar tabla perfil:', err);
+//                 return res.status(500).json({ message: 'Error interno al actualizar detalles del perfil.' });
+//             }
+            
+//             res.json({ message: 'Perfil actualizado con éxito.' });
+//         });
+//     });
+// };
