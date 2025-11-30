@@ -8,11 +8,13 @@ const PORT = process.env.PORT || 3000;
 const rutaMascota = require('./src/rutas/rutaMascota')
 const rutaUsuario = require('./src/rutas/rutaUsuario');
 const middleware = require('./src/middleware/middleware');
+const rutaSolicitud = require('./src/rutas/rutaSolicitudes');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', rutaMascota);
 app.use('/api/usuarios', rutaUsuario);
+app.use('/api/solicitudes', rutaSolicitud);
 
 //------------------------------------Rutas de archivos HTML - Inicio
 
@@ -69,4 +71,5 @@ app.get('/crud-solicitudes', middleware.isAdmin, (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     require('./src/bd')
+
 });
